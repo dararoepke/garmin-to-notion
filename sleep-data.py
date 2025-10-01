@@ -13,6 +13,9 @@ load_dotenv()
 CONFIG = dotenv_values()
 
 def get_sleep_data(garmin):
+    startdate = date.today() - timedelta(days=100)
+    daterange = [startdate + timedelta(days=x) 
+                 for x in range((date.today() - startdate).days)] # excl. today
     today = datetime.today().date()
     return garmin.get_sleep_data(today.isoformat())
 
