@@ -16,7 +16,7 @@ def get_sleep_data(garmin):
     startdate = date.today() - timedelta(days=100)
     daterange = [startdate + timedelta(days=x) 
                  for x in range((date.today() - startdate).days)] # excl. today
-    today = datetime.today().date()
+    for d in daterange:
     return garmin.get_sleep_data(today.isoformat())
 
 def format_duration(seconds):
